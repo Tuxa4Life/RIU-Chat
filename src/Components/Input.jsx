@@ -2,7 +2,7 @@ import { addDoc, serverTimestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { colRef } from "../firebase";
 
-const Input = () => {
+const Input = ({ username }) => {
     const [inputValue, setInputValue] = useState('')
 
     const uploadData = (e) => {
@@ -14,7 +14,7 @@ const Input = () => {
             const minutes = currentDate.getMinutes().toString().padStart(2, '0');
 
             addDoc(colRef, {
-                author: 'tuxa',
+                author: username,
                 date: new Date(Math.floor(Date.now() / 1000) * 1000).toDateString(),
                 hoursAndMinutes: `${hours}:${minutes}`,
                 seconds: new Date().getTime(),

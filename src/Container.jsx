@@ -4,15 +4,15 @@ import Chat from "./Components/Chat";
 import Input from "./Components/Input";
 import Navbar from "./Components/Navbar";
 
-const Container = () => {
+const Container = ({ username }) => {
     return (
         <div className="container">
             <div className="chat-wrapper">
                 <Navbar />
-                <Chat />
+                <Chat username={ username }/>
             </div>
             
-            <Input />
+            <Input username={ username }/>
         </div>
     )
 }

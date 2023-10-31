@@ -3,7 +3,7 @@ import Message from "./Message";
 import { colRef } from "../firebase";
 import { onSnapshot, orderBy, query } from "firebase/firestore";
 
-const Chat = () => {
+const Chat = ({ username }) => {
     const [data, setData] = useState([])
     const scrollLock = useRef(0)
     
@@ -31,7 +31,7 @@ const Chat = () => {
     }, [])
 
     let messages = data.map(e => {
-        return <Message key={e.id} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date}/>
+        return <Message username={username} key={e.id} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date}/>
     })
 
     return (

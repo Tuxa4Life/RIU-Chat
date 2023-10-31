@@ -1,0 +1,75 @@
+.default-message {
+  width: 100%;
+  height: 50px;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+.default-message .profile-wrapper {
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.default-message .profile-wrapper span {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s all;
+  opacity: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.651);
+}
+.default-message .profile-wrapper img {
+  height: 80%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  border-radius: 5px;
+}
+.default-message .profile-wrapper:hover {
+  cursor: pointer;
+}
+.default-message .profile-wrapper:hover span {
+  opacity: 1;
+}
+.default-message .message-wrapper {
+  height: 50px;
+  width: auto;
+  background-color: rgb(222, 222, 222);
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 90%;
+}
+
+.own {
+  flex-direction: row-reverse;
+}
+
+.date-message {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.date-message span {
+  width: 35%;
+  height: 1px;
+  border: 1px rgb(219, 219, 219) solid;
+}
+.date-message p {
+  margin: 0;
+  color: rgb(190, 188, 188);
+}/*# sourceMappingURL=Message.css.map */

@@ -2,7 +2,7 @@ import { addDoc, serverTimestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { colRef } from "../firebase";
 
-const Input = ({ username, photoUrl }) => {
+const Input = ({ username, photoUrl, uid }) => {
     const [inputValue, setInputValue] = useState('')
 
     const uploadData = (e) => {
@@ -21,7 +21,8 @@ const Input = ({ username, photoUrl }) => {
                 type: 0,
                 value: inputValue,
                 createdAt: serverTimestamp(),
-                photoUrl: photoUrl
+                photoUrl: photoUrl,
+                authorId: uid
             })
 
             setInputValue('')

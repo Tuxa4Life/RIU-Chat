@@ -3,16 +3,22 @@ import Message from "./Message";
 import { colRef } from "../firebase";
 import { onSnapshot, orderBy, query } from "firebase/firestore";
 
-const Chat = ({ username }) => {
+const Chat = ({ userData }) => {
     const [data, setData] = useState([])
-    const scrollLock = useRef(null)
-    
+
+    const messagesEndRef = useRef(null)
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView();
+    }
+
+    useEffect(() => {
+        scrollToBottom()
+    })
+
     useEffect(() => {
         const q = query(colRef, orderBy('createdAt'))
 
         onSnapshot(q, snapshot => {
-            scrollLock.current.scrollTo(0, scrollLock.current.scrollHeight)
-
             let messages = []
             snapshot.docs.forEach ((e, i) => {
                 messages.push({...e.data(), id: e.id})
@@ -31,12 +37,14 @@ const Chat = ({ username }) => {
     }, [])
 
     let messages = data.map(e => {
-        return <Message username={username} key={e.id} photoUrl={e.photoUrl} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date}/>
+        return <Message userData={userData} key={e.id} photoUrl={e.photoUrl} authorId={e.authorId} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date}/>
     })
 
     return (
-        <div ref={scrollLock} className="chat">
+        <div className="chat">
             { messages }
+
+            <div ref={messagesEndRef} />
         </div>
     )
 }

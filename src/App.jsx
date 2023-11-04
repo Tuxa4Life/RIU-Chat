@@ -8,7 +8,7 @@ const App = () => {
 
     return (
             <div className="app">
-                { userData.uid ? <Container userData={userData}/> : <Authenticaiton setUserData={setUserData}/> }
+                { userData.uid ? <Container setUserData={setUserData} userData={userData}/> : <Authenticaiton setUserData={setUserData}/> }
             </div>
     )
 }

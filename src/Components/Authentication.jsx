@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import '../Stlyes/Authenticaiton.css'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth } from "../firebase";
+import Register from "./Auths/Register";
+import Login from "./Auths/Login";
 
 const Authenticaiton = ({ setUserData }) => {
+    const [loginState, setLoginState] = useState(true)
+
     const loginWithGoogle = () => {
         const provider = new GoogleAuthProvider()
         signInWithPopup(auth, provider).then(result => {
@@ -17,9 +22,17 @@ const Authenticaiton = ({ setUserData }) => {
         })
     }
 
+    
+
     return (
         <div className="auth">
-            <button onClick={loginWithGoogle}>Sign in With google</button>
+            { loginState ? <Login setUserData={setUserData} toggle={() => setLoginState(false)}/> : <Register toggle={() => setLoginState(true)} setUserData={setUserData}/> }
+
+            <div className="ui horizontal divider">or continue with</div>
+
+            <button  onClick={loginWithGoogle} class="ui secondary inverted button">
+                <i class="google icon"></i>Google
+            </button>
         </div>
     )
 }

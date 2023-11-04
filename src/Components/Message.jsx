@@ -1,10 +1,10 @@
 import React from "react";
 import '../Stlyes/Message.css'
 
-const Message = ({ type, value, author, date, username, photoUrl }) => {
+const Message = ({ type, value, author, authorId, date, photoUrl, userData }) => {
     if (type === 0) {
         return (
-            <div className={`text-message default-message ${author === username ? 'own' : ''}`}>
+            <div className={`text-message default-message ${userData.uid == authorId ? 'own' : ''}`}>
                 <div className="profile-wrapper">
                     <span>{author.slice(0, 5)}</span>   
                     <img src={photoUrl} alt="[ - ]" />

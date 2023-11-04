@@ -11,7 +11,10 @@ const Authenticaiton = ({ setUserData }) => {
                 photoUrl: result.user.photoURL,
                 uid: result.user.uid
             })
-        }).catch(() => alert("Authentication Failed..."))
+        }).catch((err) => {
+            alert("Authentication Failed...")
+            console.log(err.message)
+        })
     }
 
     return (

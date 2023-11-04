@@ -1,13 +1,13 @@
 import React from "react";
 import '../Stlyes/Message.css'
 
-const Message = ({ type, value, author, date, username }) => {
+const Message = ({ type, value, author, date, username, photoUrl }) => {
     if (type === 0) {
         return (
-            <div className={`text-message default-message ${author == username ? 'own' : ''}`}>
+            <div className={`text-message default-message ${author === username ? 'own' : ''}`}>
                 <div className="profile-wrapper">
-                    <span>{author}</span>   
-                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" />
+                    <span>{author.slice(0, 5)}</span>   
+                    <img src={photoUrl} alt="[ - ]" />
                 </div>
                 <div title={date} className="message-wrapper">{value}</div>
             </div>

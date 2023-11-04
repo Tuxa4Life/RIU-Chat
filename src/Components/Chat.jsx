@@ -5,7 +5,7 @@ import { onSnapshot, orderBy, query } from "firebase/firestore";
 
 const Chat = ({ username }) => {
     const [data, setData] = useState([])
-    const scrollLock = useRef(0)
+    const scrollLock = useRef(null)
     
     useEffect(() => {
         const q = query(colRef, orderBy('createdAt'))
@@ -31,7 +31,7 @@ const Chat = ({ username }) => {
     }, [])
 
     let messages = data.map(e => {
-        return <Message username={username} key={e.id} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date}/>
+        return <Message username={username} key={e.id} photoUrl={e.photoUrl} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date}/>
     })
 
     return (

@@ -35,6 +35,7 @@
   -o-object-fit: fill;
      object-fit: fill;
   border-radius: 5px;
+  border: 2px rgb(157, 157, 157) solid;
 }
 .default-message .profile-wrapper:hover {
   cursor: pointer;

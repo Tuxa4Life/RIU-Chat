@@ -3,14 +3,14 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
 const Login = ({ setUserData, toggle }) => {
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('') // getting input from form ↓
     const [password, setPassword] = useState('')
 
-    const login = (e) => {
+    const login = (e) => { // exaclty what it says
         e.preventDefault()
 
-        signInWithEmailAndPassword(auth, email, password).then(creds => {
-            setUserData({
+        signInWithEmailAndPassword(auth, email, password).then(creds => { // using email registration function
+            setUserData({ // uploading needed user info
                 username: creds.user.displayName,
                 photoUrl: creds.user.photoURL,
                 uid: creds.user.uid

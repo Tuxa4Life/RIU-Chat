@@ -3,7 +3,7 @@ import { collection, getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDyKxZQMc3tKgpofU4-DP1MmA5UFT8yyyY",
+  apiKey: "AIzaSyDyKxZQMc3tKgpofU4-DP1MmA5UFT8yyyY", // if you see this, please don't...
   authDomain: "flounge-v2.firebaseapp.com",
   projectId: "flounge-v2",
   storageBucket: "flounge-v2.appspot.com",

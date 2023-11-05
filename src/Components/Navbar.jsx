@@ -6,7 +6,7 @@ import { auth } from "../firebase";
 const Navbar = ({ setUserData }) => {
     const logOut = () => {
         signOut(auth).then(() => {
-            setUserData('')
+            setUserData({})
         })
     }
 

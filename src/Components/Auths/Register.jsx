@@ -3,21 +3,21 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from "../../firebase";
 
 const Register = ({ setUserData, toggle }) => {
-    const [username, setUsername] = useState('')
+    const [username, setUsername] = useState('') // getting values from form ↓↓
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const registerWithEmail = (e) => {
+    const registerWithEmail = (e) => { // exactly what it says
         e.preventDefault()
 
-        createUserWithEmailAndPassword(auth, email, password).then(creds => {
-            let user = creds.user
+        createUserWithEmailAndPassword(auth, email, password).then(creds => { // using firebase registration function
+            let user = creds.user // we register them with email and password ↑ and then getting creditentials as a promise
 
-            updateProfile(user, {
+            updateProfile(user, { // using creds to modify with funciton (adding username and pfp)
                 displayName: username,
                 photoURL: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
             }).then(() => {
-                setUserData({
+                setUserData({ // setting user data to auto-login App.jsx
                     username: creds.user.displayName,
                     photoUrl: creds.user.photoURL,
                     uid: creds.user.uid

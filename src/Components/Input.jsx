@@ -3,24 +3,24 @@ import React, { useState } from "react";
 import { colRef } from "../firebase";
 
 const Input = ({ username, photoUrl, uid }) => {
-    const [inputValue, setInputValue] = useState('')
+    const [inputValue, setInputValue] = useState('') // to store input element value
 
-    const uploadData = (e) => {
-        e.preventDefault()
+    const uploadData = (e) => { // exaclty what it says
+        e.preventDefault() // not to reload
 
-        if (inputValue) {
-            const currentDate = new Date();
+        if (inputValue) { // if input field is not empty
+            const currentDate = new Date(); // getting all this shit ↓↓ to write time correctly (new Date() sucks)
             const hours = currentDate.getHours().toString().padStart(2, '0');
             const minutes = currentDate.getMinutes().toString().padStart(2, '0');
 
-            addDoc(colRef, {
+            addDoc(colRef, { // uploading data to database
                 author: username,
-                date: new Date(Math.floor(Date.now() / 1000) * 1000).toDateString(),
-                hoursAndMinutes: `${hours}:${minutes}`,
-                seconds: new Date().getTime(),
-                type: 0,
+                date: new Date(Math.floor(Date.now() / 1000) * 1000).toDateString(), // format date beautifully
+                hoursAndMinutes: `${hours}:${minutes}`, // format time in beatufully
+                seconds: new Date().getTime(), // seconds to use them later while rendering (time and quick message stamps)
+                type: 0, // default type where 0 = message, 1 = image, 2 = timestamp
                 value: inputValue,
-                createdAt: serverTimestamp(),
+                createdAt: serverTimestamp(), // using firebase bult-in function to order them in Chat.jsx component
                 photoUrl: photoUrl,
                 authorId: uid
             })

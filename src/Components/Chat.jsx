@@ -45,7 +45,7 @@ const Chat = ({ userData }) => {
     }, [])
 
     let messages = data.map((e, i) => {
-        let status = ''
+        let status = 'lone'
         if (!data[i - 1]) { // checking for the first element
             if (e.removePfp) status = 'first' // ↓ returning so the map will stop
             return <Message userData={userData} key={i} removePfp={e.removePfp} photoUrl={e.photoUrl} authorId={e.authorId} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date} status={status}/>

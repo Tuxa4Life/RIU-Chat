@@ -16,7 +16,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 5px;
-
+        cursor: pointer;
         span {
             width: 80%;
             height: 80%;
@@ -43,16 +43,9 @@
         }
     }
 
-    .profile-wrapper:hover {
-        cursor: pointer;
-        span {
-            opacity: 1;
-        }
-    }
-
     .message-wrapper {
         height: 50px;
-        width: auto;
+        max-width: 76%;
         background-color: rgb(222, 222, 222);
         padding: 0 10px;
         display: flex;
@@ -60,6 +53,31 @@
         justify-content: center;
         border-radius: 5px;
         height: 90%;
+
+        position: relative;
+        .username-holder {
+            position: absolute;
+            font-size: 12px;
+            display: none;
+            
+        }
+        
+    }
+
+    .icon {
+        margin: 0 5px;
+        color: gray;   
+        display: none; 
+    }
+    .icon:hover {
+        cursor: pointer;
+        color: rgb(97, 97, 97);
+    }
+}
+
+.default-message:hover {
+    .icon {
+        display: block;
     }
 }
 
@@ -71,6 +89,18 @@
     .profile-wrapper {
         opacity: 0;
         cursor: default !important;
+    }
+}
+
+.lone.notOwn, .first.notOwn {
+    margin-top: 16px;
+
+    .message-wrapper {
+        .username-holder {
+            display: block;
+            top: -17px;
+            left: 5px;
+        }
     }
 }
 

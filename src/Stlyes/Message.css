@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 5px;
+  cursor: pointer;
 }
 .default-message .profile-wrapper span {
   width: 80%;
@@ -37,15 +38,9 @@
   border-radius: 5px;
   border: 2px rgb(157, 157, 157) solid;
 }
-.default-message .profile-wrapper:hover {
-  cursor: pointer;
-}
-.default-message .profile-wrapper:hover span {
-  opacity: 1;
-}
 .default-message .message-wrapper {
   height: 50px;
-  width: auto;
+  max-width: 76%;
   background-color: rgb(222, 222, 222);
   padding: 0 10px;
   display: flex;
@@ -53,6 +48,25 @@
   justify-content: center;
   border-radius: 5px;
   height: 90%;
+  position: relative;
+}
+.default-message .message-wrapper .username-holder {
+  position: absolute;
+  font-size: 12px;
+  display: none;
+}
+.default-message .icon {
+  margin: 0 5px;
+  color: gray;
+  display: none;
+}
+.default-message .icon:hover {
+  cursor: pointer;
+  color: rgb(97, 97, 97);
+}
+
+.default-message:hover .icon {
+  display: block;
 }
 
 .own {
@@ -62,6 +76,15 @@
 .quick-message .profile-wrapper {
   opacity: 0;
   cursor: default !important;
+}
+
+.lone.notOwn, .first.notOwn {
+  margin-top: 16px;
+}
+.lone.notOwn .message-wrapper .username-holder, .first.notOwn .message-wrapper .username-holder {
+  display: block;
+  top: -17px;
+  left: 5px;
 }
 
 .first {

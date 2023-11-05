@@ -30,8 +30,8 @@ const Authenticaiton = ({ setUserData }) => {
 
             <div className="ui horizontal divider">or continue with</div>
 
-            <button  onClick={loginWithGoogle} class="ui secondary inverted button">
-                <i class="google icon"></i>Google
+            <button  onClick={loginWithGoogle} className="ui secondary inverted button">
+                <i className="google icon"></i>Google
             </button>
         </div>
     )

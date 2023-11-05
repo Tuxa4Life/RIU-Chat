@@ -59,6 +59,44 @@
   flex-direction: row-reverse;
 }
 
+.quick-message .profile-wrapper {
+  opacity: 0;
+  cursor: default !important;
+}
+
+.first {
+  margin-bottom: -3px;
+}
+.first .message-wrapper {
+  border-radius: 5px 5px 5px 0;
+}
+
+.first.own .message-wrapper {
+  border-radius: 5px 5px 0 5px !important;
+}
+
+.middle {
+  margin: -3px 0;
+}
+.middle .message-wrapper {
+  border-radius: 0 5px 5px 0;
+}
+
+.middle.own .message-wrapper {
+  border-radius: 5px 0 0 5px !important;
+}
+
+.last {
+  margin-top: -3px;
+}
+.last .message-wrapper {
+  border-radius: 0 5px 5px 5px;
+}
+
+.last.own .message-wrapper {
+  border-radius: 5px 0 5px 5px !important;
+}
+
 .date-message {
   width: 100%;
   display: flex;

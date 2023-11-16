@@ -72,6 +72,12 @@
 .own {
   flex-direction: row-reverse;
 }
+.own .profile-wrapper {
+  display: none;
+}
+.own .message-wrapper {
+  margin-right: 10px;
+}
 
 .quick-message .profile-wrapper {
   opacity: 0;

@@ -83,6 +83,14 @@
 
 .own {
     flex-direction: row-reverse;
+
+    .profile-wrapper {
+        display: none;
+    }
+    .message-wrapper {
+        margin-right: 10px;
+    }
+
 }
 
 .quick-message {

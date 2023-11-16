@@ -18,9 +18,15 @@
 .auth .ui.form span {
   width: 95%;
 }
+.auth .ui.form span input {
+  border: 2px gray solid;
+}
 .auth .ui.form h2 {
   width: 80%;
   text-align: center;
+}
+.auth .ui.form button:last-child {
+  text-decoration: underline;
 }
 .auth .horizontal.divider {
   margin: 30px 0 20px 0;

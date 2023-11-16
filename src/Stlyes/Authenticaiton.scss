@@ -17,6 +17,10 @@
 
         span {
             width: 95%;
+
+            input {
+                border: 2px gray solid;
+            }  
         }
 
         h2 {
@@ -26,6 +30,10 @@
 
         background-color: rgb(199, 199, 199);
         padding: 0 15px;
+
+        button:last-child {
+            text-decoration: underline;
+        }
     }
 
     .horizontal.divider {

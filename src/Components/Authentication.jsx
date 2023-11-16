@@ -16,6 +16,13 @@ const Authenticaiton = ({ setUserData }) => {
                 photoUrl: result.user.photoURL,
                 uid: result.user.uid
             })
+
+            let data = JSON.stringify({ // setting local storage balues, same as there ↑
+                username: result.user.displayName,
+                photoUrl: result.user.photoURL,
+                uid: result.user.uid
+            })
+            localStorage.setItem('_user', data)
         }).catch((err) => { // just in case...
             alert("Authentication Failed...")
             console.log(err.message)

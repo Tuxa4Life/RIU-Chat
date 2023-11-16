@@ -15,7 +15,15 @@ const Login = ({ setUserData, toggle }) => {
                 photoUrl: creds.user.photoURL,
                 uid: creds.user.uid
             })
+
+            let data = JSON.stringify({ // setting local storage balues, same as there ↑
+                username: creds.user.displayName,
+                photoUrl: creds.user.photoURL,
+                uid: creds.user.uid
+            })
+            localStorage.setItem('_user', data)
         })
+
     }
 
     return (

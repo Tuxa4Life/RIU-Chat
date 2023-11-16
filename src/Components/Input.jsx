@@ -2,7 +2,7 @@ import { addDoc, serverTimestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { colRef } from "../firebase";
 
-const Input = ({ username, photoUrl, uid }) => {
+const Input = ({ username, photoUrl, uid, replyData, setReplyData }) => {
     const [inputValue, setInputValue] = useState('') // to store input element value
 
     const uploadData = (e) => { // exaclty what it says
@@ -13,7 +13,7 @@ const Input = ({ username, photoUrl, uid }) => {
             const hours = currentDate.getHours().toString().padStart(2, '0');
             const minutes = currentDate.getMinutes().toString().padStart(2, '0');
 
-            addDoc(colRef, { // uploading data to database
+            let obj = { // uploading data to database
                 author: username,
                 date: new Date(Math.floor(Date.now() / 1000) * 1000).toDateString(), // format date beautifully
                 hoursAndMinutes: `${hours}:${minutes}`, // format time in beatufully
@@ -22,8 +22,14 @@ const Input = ({ username, photoUrl, uid }) => {
                 value: inputValue,
                 createdAt: serverTimestamp(), // using firebase bult-in function to order them in Chat.jsx component
                 photoUrl: photoUrl,
-                authorId: uid
-            })
+                authorId: uid,
+            }
+            if (replyData) {
+                obj.repliedAt = replyData
+                setReplyData(null)
+            }
+
+            addDoc(colRef, obj)
 
             setInputValue('')
         }

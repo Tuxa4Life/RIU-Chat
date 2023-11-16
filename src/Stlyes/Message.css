@@ -38,19 +38,23 @@
   border-radius: 5px;
   border: 2px rgb(157, 157, 157) solid;
 }
-.default-message .message-wrapper {
-  height: 50px;
+.default-message .message-reply-wrapper {
+  height: 45px;
   max-width: 76%;
+  position: relative;
+}
+.default-message .message-reply-wrapper .message-wrapper {
+  height: 45px;
   background-color: rgb(222, 222, 222);
   padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  height: 90%;
+  z-index: 2;
   position: relative;
 }
-.default-message .message-wrapper .username-holder {
+.default-message .message-reply-wrapper .message-wrapper .username-holder {
   position: absolute;
   font-size: 12px;
   display: none;
@@ -73,10 +77,32 @@
   flex-direction: row-reverse;
 }
 .own .profile-wrapper {
-  display: none;
+  display: none !important;
 }
-.own .message-wrapper {
+.own .message-reply-wrapper .message-wrapper {
   margin-right: 10px;
+}
+.own .message-reply-wrapper .reply-wrapper {
+  position: absolute;
+  top: -27px;
+  right: 15px;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 120px;
+  background-color: rgb(236, 236, 236);
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px rgb(228, 228, 228) solid;
+}
+.own .message-reply-wrapper .reply-wrapper p {
+  width: 100%;
+  text-align: center;
+}
+.own .message-reply-wrapper .replied-to {
+  position: absolute;
+  top: -17px;
+  left: 5px;
+  font-size: 11px;
 }
 
 .quick-message .profile-wrapper {
@@ -87,10 +113,32 @@
 .lone.notOwn, .first.notOwn {
   margin-top: 16px;
 }
-.lone.notOwn .message-wrapper .username-holder, .first.notOwn .message-wrapper .username-holder {
+.lone.notOwn .message-reply-wrapper .message-wrapper .username-holder, .first.notOwn .message-reply-wrapper .message-wrapper .username-holder {
   display: block;
   top: -17px;
   left: 5px;
+}
+.lone.notOwn .message-reply-wrapper .reply-wrapper, .first.notOwn .message-reply-wrapper .reply-wrapper {
+  position: absolute;
+  top: -27px;
+  min-width: 120px;
+  left: 15px;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: rgb(236, 236, 236);
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px rgb(228, 228, 228) solid;
+}
+.lone.notOwn .message-reply-wrapper .reply-wrapper p, .first.notOwn .message-reply-wrapper .reply-wrapper p {
+  width: 100%;
+  text-align: center;
+}
+.lone.notOwn .message-reply-wrapper .replied-to, .first.notOwn .message-reply-wrapper .replied-to {
+  position: absolute;
+  top: -17px;
+  left: 5px;
+  font-size: 11px;
 }
 
 .first {

@@ -3,7 +3,7 @@ import Message from "./Message";
 import { colRef } from "../firebase";
 import { onSnapshot, orderBy, query } from "firebase/firestore";
 
-const Chat = ({ userData }) => {
+const Chat = ({ userData, setReplyData }) => {
     const [data, setData] = useState([]) // storing message values here
 
     const messagesEndRef = useRef(null) // ref to make an auto scroll
@@ -47,8 +47,8 @@ const Chat = ({ userData }) => {
     let messages = data.map((e, i) => {
         let status = 'lone'
         if (!data[i - 1]) { // checking for the first element
-            if (e.removePfp) status = 'first' // ↓ returning so the map will stop
-            return <Message userData={userData} key={i} removePfp={e.removePfp} photoUrl={e.photoUrl} authorId={e.authorId} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date} status={status}/>
+            if (e.removePfp) status = 'first' // ↓ returning so the map will stopx
+            return <Message userData={userData} key={i} removePfp={e.removePfp} photoUrl={e.photoUrl} authorId={e.authorId} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date} status={status} repliedAt={e.repliedAt} setReplyData={setReplyData}/>
         }
 
         // some logic to filter between first, middle and last messages, to style them correctly
@@ -56,8 +56,7 @@ const Chat = ({ userData }) => {
         if (!data[i - 1].removePfp && e.removePfp) status = 'first'
         if (!e.removePfp && data[i - 1].removePfp) status = 'last'
 
-
-        return <Message userData={userData} key={i} removePfp={e.removePfp} photoUrl={e.photoUrl} authorId={e.authorId} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date} status={status}/>
+        return <Message userData={userData} key={i} removePfp={e.removePfp} photoUrl={e.photoUrl} authorId={e.authorId} author={e.author} type={e.type} value={e.value} date={e.hoursAndMinutes + " " + e.date} status={status} repliedAt={e.repliedAt} setReplyData={setReplyData}/>
     })
 
     return (

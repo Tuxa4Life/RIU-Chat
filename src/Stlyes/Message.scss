@@ -43,24 +43,31 @@
         }
     }
 
-    .message-wrapper {
-        height: 50px;
+    .message-reply-wrapper {
+        height: 45px;
         max-width: 76%;
-        background-color: rgb(222, 222, 222);
-        padding: 0 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        height: 90%;
-
         position: relative;
-        .username-holder {
-            position: absolute;
-            font-size: 12px;
-            display: none;
+
+        .message-wrapper {
+            height: 45px;
+            background-color: rgb(222, 222, 222);
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            z-index: 2;
+    
+            position: relative;
+            .username-holder {
+                position: absolute;
+                font-size: 12px;
+                display: none;
+                
+            }
             
         }
+
         
     }
 
@@ -85,10 +92,36 @@
     flex-direction: row-reverse;
 
     .profile-wrapper {
-        display: none;
+        display: none !important;
     }
-    .message-wrapper {
-        margin-right: 10px;
+    .message-reply-wrapper {
+        .message-wrapper {
+            margin-right: 10px;
+        }
+
+        .reply-wrapper {
+            position: absolute;
+            top: -27px;
+            right: 15px;
+
+            width: max-content;
+            min-width: 120px;
+            background-color: rgb(236, 236, 236);
+            padding: 7px;
+            border-radius: 5px;
+            border: 1px rgb(228, 228, 228) solid;
+
+            p {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .replied-to {
+            position: absolute;
+            top: -17px;
+            left: 5px;
+            font-size: 11px;
+        }
     }
 
 }
@@ -103,11 +136,37 @@
 .lone.notOwn, .first.notOwn {
     margin-top: 16px;
 
-    .message-wrapper {
-        .username-holder {
-            display: block;
+    .message-reply-wrapper {
+        .message-wrapper {
+            .username-holder {
+                display: block;
+                top: -17px;
+                left: 5px;
+            }
+        }
+
+        .reply-wrapper {
+            position: absolute;
+            top: -27px;
+            min-width: 120px;
+            left: 15px;
+
+            width: max-content;
+            background-color: rgb(236, 236, 236);
+            padding: 7px;
+            border-radius: 5px;
+            border: 1px rgb(228, 228, 228) solid;
+
+            p {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .replied-to {
+            position: absolute;
             top: -17px;
             left: 5px;
+            font-size: 11px;
         }
     }
 }

@@ -7,6 +7,7 @@ const Navbar = ({ setUserData }) => {
     const logOut = () => {
         signOut(auth).then(() => {
             setUserData({})
+            localStorage.removeItem('_user') // removing from local storage too
         })
     }
 

@@ -73,6 +73,29 @@
   display: block;
 }
 
+.notOwn .message-reply-wrapper .reply-wrapper {
+  position: absolute;
+  top: -27px;
+  min-width: 120px;
+  left: 15px;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: rgb(236, 236, 236);
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px rgb(228, 228, 228) solid;
+}
+.notOwn .message-reply-wrapper .reply-wrapper p {
+  width: 100%;
+  text-align: center;
+}
+.notOwn .message-reply-wrapper .replied-to {
+  position: absolute;
+  top: -17px;
+  left: 5px;
+  font-size: 11px;
+}
+
 .own {
   flex-direction: row-reverse;
 }
@@ -118,28 +141,6 @@
   top: -17px;
   left: 5px;
 }
-.lone.notOwn .message-reply-wrapper .reply-wrapper, .first.notOwn .message-reply-wrapper .reply-wrapper {
-  position: absolute;
-  top: -27px;
-  min-width: 120px;
-  left: 15px;
-  width: -moz-max-content;
-  width: max-content;
-  background-color: rgb(236, 236, 236);
-  padding: 7px;
-  border-radius: 5px;
-  border: 1px rgb(228, 228, 228) solid;
-}
-.lone.notOwn .message-reply-wrapper .reply-wrapper p, .first.notOwn .message-reply-wrapper .reply-wrapper p {
-  width: 100%;
-  text-align: center;
-}
-.lone.notOwn .message-reply-wrapper .replied-to, .first.notOwn .message-reply-wrapper .replied-to {
-  position: absolute;
-  top: -17px;
-  left: 5px;
-  font-size: 11px;
-}
 
 .first {
   margin-bottom: -3px;
@@ -158,6 +159,9 @@
 .middle .message-wrapper {
   border-radius: 0 5px 5px 0;
 }
+.middle .message-wrapper .username-holder {
+  display: none !important;
+}
 
 .middle.own .message-wrapper {
   border-radius: 5px 0 0 5px !important;
@@ -168,6 +172,9 @@
 }
 .last .message-wrapper {
   border-radius: 0 5px 5px 5px;
+}
+.last .message-wrapper .username-holder {
+  display: none !important;
 }
 
 .last.own .message-wrapper {

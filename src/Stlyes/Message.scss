@@ -88,6 +88,34 @@
     }
 }
 
+.notOwn {
+    .message-reply-wrapper {
+        .reply-wrapper {
+            position: absolute;
+            top: -27px;
+            min-width: 120px;
+            left: 15px;
+
+            width: max-content;
+            background-color: rgb(236, 236, 236);
+            padding: 7px;
+            border-radius: 5px;
+            border: 1px rgb(228, 228, 228) solid;
+
+            p {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .replied-to {
+            position: absolute;
+            top: -17px;
+            left: 5px;
+            font-size: 11px;
+        }
+    }
+}
+
 .own {
     flex-direction: row-reverse;
 
@@ -123,7 +151,6 @@
             font-size: 11px;
         }
     }
-
 }
 
 .quick-message {
@@ -144,30 +171,6 @@
                 left: 5px;
             }
         }
-
-        .reply-wrapper {
-            position: absolute;
-            top: -27px;
-            min-width: 120px;
-            left: 15px;
-
-            width: max-content;
-            background-color: rgb(236, 236, 236);
-            padding: 7px;
-            border-radius: 5px;
-            border: 1px rgb(228, 228, 228) solid;
-
-            p {
-                width: 100%;
-                text-align: center;
-            }
-        }
-        .replied-to {
-            position: absolute;
-            top: -17px;
-            left: 5px;
-            font-size: 11px;
-        }
     }
 }
 
@@ -187,6 +190,10 @@
     margin: -3px 0;
     .message-wrapper {
         border-radius: 0 5px 5px 0;
+
+        .username-holder {
+            display: none !important;
+        }
     }
 }
 .middle.own {
@@ -199,6 +206,9 @@
     margin-top: -3px;
     .message-wrapper {
         border-radius: 0 5px 5px 5px;
+        .username-holder {
+            display: none !important;
+        }
     }
 }
 .last.own {

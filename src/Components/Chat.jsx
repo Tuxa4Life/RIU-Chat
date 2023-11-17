@@ -39,7 +39,6 @@ const Chat = ({ userData, setReplyData }) => {
                     }
                 }
             })
-
             setData(messages) // setting data
         })
     }, [])

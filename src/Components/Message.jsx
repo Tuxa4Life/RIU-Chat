@@ -7,9 +7,9 @@ const Message = ({ type, value, author, authorId, date, photoUrl, userData, remo
     const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)]
 
     let reply = ''
-    if (repliedAt) {
+    if (repliedAt) { // reply element. its here to prevent error of null
         reply = <div className="reply-wrapper">
-            <span className="replied-to">{author.split(" ")[0]} replied to {repliedAt.author.split(" ")[0]}</span>
+            <span className="replied-to">{author.split(" ")[0].slice(0, 5)} replied to {repliedAt.author.split(" ")[0].slice(0, 5)}</span>
             <p>{repliedAt.value}</p>
         </div>
     }
@@ -18,7 +18,7 @@ const Message = ({ type, value, author, authorId, date, photoUrl, userData, remo
     // text message
     if (type === 0) {
         return (
-            <div style={{marginTop: `${repliedAt ? '40px' : 'unset'}`}} className={`text-message default-message ${userData.uid === authorId ? 'own' : 'notOwn'} ${removePfp ? 'quick-message' : ''} ${status}`}> {/* using this stuff to filter them in styles */}
+            <div style={{marginTop: `${repliedAt ? '40px' : '3px'}`}} className={`text-message default-message ${userData.uid === authorId ? 'own' : 'notOwn'} ${removePfp ? 'quick-message' : ''} ${status}`}> {/* using this stuff to filter them in styles */}
                 <div className="profile-wrapper">
                     <img src={photoUrl} alt="[ - ]" />
                 </div>
